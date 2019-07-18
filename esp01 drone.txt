@@ -1,0 +1,26 @@
+step1-make a connection of esp01 as given.
+
+step2-Open the wifippm code
+       -->If you are using esp8266(esp-12) set GPIO5 pin as PPM output pin and GPIO4 pin as debug pin.
+       -->If you are using esp8266(esp-01) set GPIO2 pin as PPM output pin and GPIO3 pin as debug pin.
+
+step3-upload the wifippm code to esp01 with the help ttl or ftdi.
+
+step4-After upload the code remove the Rx Tx GPIO0 and CH_pd pins.If a hotspot is created named wifippm then everythings is alright.
+      If hotspot is not created then connect Ch_pd pin to 3.3v and reset the espo1(means off and again on). 
+
+step5-open multiwii firmware go to config.h and uncomment the following lines.
+           The type of multicopter----------> #define QUADX 
+            Combined IMU Boards-------------> #define GY_521 
+            PPM Sum Reciver ----------------> #define SERIAL_SUM_PPM         PITCH,ROLL,THROTTLE,YAW,AUX1,AUX2,AUX3,AUX4,8,9,10,11 //For some Hitec/Sanwa/Others 
+
+step6-upload the code in arduino uno board.
+
+step7-open the multiwii gui select the board and click the start button. Move your quadcopter and you can seen the reading of gyroscope and acclerometer.
+
+step8-connect your phone with wifipmm hotspot and open any browser and type 192.168.4.1 
+
+step9-move the joystic in browser and you can see the changes in multiwii gui.
+
+
+reference-https://www.instructables.com/id/Wifi-PPM-no-App-Needed/
